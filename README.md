@@ -1,4 +1,6 @@
-![logo](/run/user/1000/gvfs/sftp:host=aim/home/florian/2024/destination-reachable/logo.png)
+<p align="center">
+  <img width="460" src="logo.png">
+</p>
 
 # Code for Active Measurements on ICMPv6 Error Messages
 
@@ -59,7 +61,7 @@ pip install -r requirements.txt
 ipython kernel install --name "venv-icmpv6" --user
 ```
 
-Run Jupyter Notebook (Read Important: Change Kernel -> venv-icmpv6)
+Run Jupyter Notebook (Important: Change Kernel -> venv-icmpv6)
 
 ```bash
 # Execute locally
@@ -123,7 +125,6 @@ We rely on routing collectors to assign routed network borders to each hitlist a
 B127 is at the moment implemented as a separate measurement that only flips the last bit. The results are then combined with the results of the regular BValue Steps Measurement.
 
 > [!TIP]
->
 > To again verify if the responsive address is responsive to either or all ICMPv6, TCP and UDP, lastbit writes the original and the flipped address to the output file.
 
 > [!IMPORTANT]
@@ -135,7 +136,9 @@ B127 is at the moment implemented as a separate measurement that only flips the 
 
 ##### E.g. Bvalue Address Generation
 
-<img src="/run/user/1000/gvfs/sftp:host=aim/home/florian/2023/PAPER_Toolset/types_and_codes/bvalue/bvalue_example.png" alt="BValue Example" style="height:200px;" />
+<p align="center">
+  <img width="460" src="bvalues/bvalue_example.png">
+</p>
 
 #### 1.3 Network Activity Scans 🌐 (Follow up step -  Not covered  by the Jupyter Notebook)
 
@@ -267,7 +270,6 @@ Steps to reproduce, follow the steps in the Jupyter Notebook:
    The following bash script does the job (24h+ needed)
 
    > [!TIP]
-   >
    > May take some time, execute snippet inside `screen`
 
    Requires: 
@@ -340,17 +342,17 @@ To collect error messages and rate limits in the IPv6 Internet we rely on the [1
 
 Each measurement folder includes a `scan.conf` including a subset of the following parameters
 
-> [!IMPORTANT]
->
-> ip=<public ipv6 source address for scanning> # `ip a`; Additionally before scanning for good Internet citizenship, set a reverse dns entry on that IP explaining the reason why you perform this scan  <string>
-> mac=<mac address of the interface> # again `ip a`, it includes the mac address of the interface   <string>
-> gw=<mac address of the gateway> # use `ip - 6 neigh`  <string>
-> int=<name of source interface> #use the interface name <string>
-> speed=<200,1000,...> # The number of packets per second <integer>
-> proto=<all, icmp, tcp or udp> #the protocol to perform scans with <string>
-> outdir= <output directory> # folder to store scan results <string>
-> zmap=<path to zmap version>  <string>
-> yarrp=<optional: path to yarrp binary> <string>
+```bash
+ip=<public ipv6 source address for scanning> # `ip a`; Additionally before scanning for good Internet citizenship, set a reverse dns entry on that IP explaining the reason why you perform this scan  <string>
+mac=<mac address of the interface> # again `ip a`, it includes the mac address of the interface   <string>
+gw=<mac address of the gateway> # use `ip - 6 neigh`  <string>
+int=<name of source interface> #use the interface name <string>
+speed=<200,1000,...> # The number of packets per second <integer>
+proto=<all, icmp, tcp or udp> #the protocol to perform scans with <string>
+outdir= <output directory> # folder to store scan results <string>
+zmap=<path to zmap version>  <string>
+yarrp=<optional: path to yarrp binary> <string>
+```
 
 Each measurement folder includes a .sh (bash) script to orchestrate the measurements.
 
