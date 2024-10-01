@@ -1,0 +1,7 @@
+bitstring==4.2.1
+natsort==8.4.0
+numpy==2.0.1
+pandas==2.2.2
+pysubnettree==0.37
+tqdm==4.66.2
+treelib==1.7.0

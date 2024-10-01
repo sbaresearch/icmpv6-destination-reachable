@@ -1,0 +1,16 @@
+bitstring==4.2.3
+empiricaldist==0.7.5
+matplotlib==3.9.2
+natsort==8.4.0
+numpy==2.1.1
+pandas==2.2.3
+pyasn==1.6.2
+scikit_learn==1.5.2
+scipy==1.14.1
+seaborn==0.13.2
+tqdm==4.66.5
+treelib==1.7.0
+yellowbrick==1.5
+pysubnettree==0.37
+jupyter==1.1.1
+mac-vendor-lookup==0.1.12

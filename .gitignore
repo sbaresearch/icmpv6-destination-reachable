@@ -1,0 +1,4 @@
+env_icmpv6/
+data/
+.ipynb_checkpoints/
+**/__pycache__/
