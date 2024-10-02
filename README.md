@@ -28,6 +28,20 @@ It allows to evaluate the implementation of the following  ICMPv6 Error Message 
 >
 > **What it is not**: It is not a complete one-script/docker solution, since measurements were conducted in different environments (GNS3 router images, kvm kernel testing, active measurements on routers in the IPv6 Internet)
 
+To reproduce our results, first download the required datasets
+
+```bash
+mkdir -p data
+# For BValues (2.6GB)
+wget -O data/data_bvalues.zip https://services.phaidra.univie.ac.at/api/object/o:2095201/download; unzip data/data_bvalues.zip -d data/
+
+# For Rate Limits (26MB)
+wget -O data/data_ratelimits.zip https://services.phaidra.univie.ac.at/api/object/o:2095197/download; unzip data/data_ratelimits.zip -d data/
+
+```
+
+
+
 ## 📚 Publication
 
 If you use the code or data in your research or work, please cite the following paper:
