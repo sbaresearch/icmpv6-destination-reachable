@@ -30,6 +30,8 @@ It allows to evaluate the implementation of the following  ICMPv6 Error Message 
 
 ## 📚 Publication
 
+If you use the code or data in your research or work, please cite the following paper:
+
 ```bibtex
 @inproceedings{holzbauer2024reachable,
   title     = {Destination Reachable: What ICMPv6 Error Messages Reveal About Their Sources},
@@ -45,7 +47,7 @@ It allows to evaluate the implementation of the following  ICMPv6 Error Message 
 
 ## 👩‍💻👨‍💻 Authors
 
-The authors are part of the [Network & Critical Infrastructure Security Group@SBA Research](https://www.sba-research.org/research/research-groups/eris/) and [SEC@University of Vienna](https://sec.cs.univie.ac.at/).
+This toolchain was developed by [Florian Holzbauer](https://github.com/holzsec) as part of the [Network & Critical Infrastructure Security Group@SBA Research](https://www.sba-research.org/research/research-groups/eris/) and [SEC@University of Vienna](https://sec.cs.univie.ac.at/).
 
 ## 📓 Jupyter Notebooks
 
@@ -372,3 +374,13 @@ We performed local measurements for:
   - Kernels: `measurements/ratelimits/kerneldefaults`
   - Router Defaults:  `measurements/ratelimits/routerlab`
     - `./orchestrate_nd_rate_limits_single_destination.sh 1 0c:62:29:65:00:00 all paper 200 10`
+
+## Related Repositories
+* [zmapv6](https://github.com/tumi8/zmap): used with adoptions to collect error messages and measure rate limits
+* [yarrp](https://github.com/cmand/yarrp): used for large-scale tracerouting
+* [routerlab](https://github.com/sbaresearch/router-lab): used to collect router default behavior in a controlled environment (GNS3)
+
+## License
+icmpv6-destination-reachable is licensed under GPLv3.
+
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
