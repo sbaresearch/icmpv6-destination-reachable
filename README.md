@@ -2,7 +2,7 @@
   <img width="460" src="logo.png">
 </p>
 
-# Code for Active Measurements on ICMPv6 Error Messages
+# Active Measurements on ICMPv6 Error Messages
 
 The toolchain evaluates the ICMPv6 error message **type & code usage** and ICMPv6 error message **rate limit** implementations of IPv6 routers. 
 
@@ -389,7 +389,9 @@ We performed local measurements for:
   - Router Defaults:  `measurements/ratelimits/routerlab`
     - `./orchestrate_nd_rate_limits_single_destination.sh 1 0c:62:29:65:00:00 all paper 200 10`
 
-## Related Repositories
+## Related Repositories & Projects
+* [ipv6hitlist](https://ipv6hitlist.github.io/): used to extract active IPv6 networks with atlest one responsive host
+* [snmpv3](https://snmpv3.io/): used to collect vendor ground truth on IPv6 routers
 * [zmapv6](https://github.com/tumi8/zmap): used with adoptions to collect error messages and measure rate limits
 * [yarrp](https://github.com/cmand/yarrp): used for large-scale tracerouting
 * [routerlab](https://github.com/sbaresearch/router-lab): used to collect router default behavior in a controlled environment (GNS3)
