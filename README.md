@@ -29,6 +29,7 @@ It allows to evaluate the implementation of the following  ICMPv6 Error Message 
 > **What it is not**: It is not a complete one-script/docker solution, since measurements were conducted in different environments (GNS3 router images, kvm kernel testing, active measurements on routers in the IPv6 Internet)
 
 To reproduce our results, first download the required datasets
+(The Jupyter Notebooks include code to further extract the required archives)
 
 ```bash
 mkdir -p data
