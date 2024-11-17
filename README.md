@@ -2,7 +2,12 @@
   <img width="460" src="logo.png">
 </p>
 
-# Code for Active Measurements on ICMPv6 Error Messages
+# Destination Reachable: What ICMPv6 Error Messages Reveal About Their Sources
+
+This is the artifacts repository of the Internet Measurement Conference (IMC) 2024 paper: Destination Reachable: What ICMPv6 Error Messages Reveal About Their Sources
+
+## 📖 Abstract
+The probability of hitting an active IPv6 address by chance is virtually zero; instead, it appears more promising to analyze ICMPv6 error messages that are returned in case of an undeliverable packet. In this paper, we investigate the implementation of ICMPv6 error messages by different router vendors, whether a remote network’s deployment status might be inferred from them, and analyze ICMPv6 error messaging behavior of routers in the IPv6 Internet. We find that Address Unreachable with a delay of more than a second indicates active networks, whereas Time Exceeded, Reject Route and Address Unreachable with short delays pinpoint inactive networks. Furthermore, we found that ICMPv6 rate-limiting implementations, used to protect routers, allow the fingerprinting of vendors and OS-versions. This enabled us to detect more than a million periphery routers relying on Linux kernels from 2018 (or before); these kernels have reached end of life (EOL) and no longer receive security updates.
 
 The toolchain evaluates the ICMPv6 error message **type & code usage** and ICMPv6 error message **rate limit** implementations of IPv6 routers. 
 
@@ -28,6 +33,25 @@ It allows to evaluate the implementation of the following  ICMPv6 Error Message 
 >
 > **What it is not**: It is not a complete one-script/docker solution, since measurements were conducted in different environments (GNS3 router images, kvm kernel testing, active measurements on routers in the IPv6 Internet)
 
+
+## 💾 Dataset
+
+To reproduce our results, first download the required datasets
+> [!TIP]
+> The Jupyter Notebooks include code to further extract and process the downloaded zip archives
+
+```bash
+mkdir -p data
+# For BValues (2.6GB)
+wget -O data/data_bvalues.zip https://services.phaidra.univie.ac.at/api/object/o:2095201/download; unzip data/data_bvalues.zip -d data/
+
+# For Rate Limits (26MB)
+wget -O data/data_ratelimits.zip https://services.phaidra.univie.ac.at/api/object/o:2095197/download; unzip data/data_ratelimits.zip -d data/
+
+```
+
+
+
 ## 📚 Publication
 
 If you use the code or data in your research or work, please cite the following paper:
@@ -47,9 +71,9 @@ If you use the code or data in your research or work, please cite the following 
 
 ## 👩‍💻👨‍💻 Authors
 
-This toolchain was developed by [Florian Holzbauer](https://github.com/holzsec) as part of the [Network & Critical Infrastructure Security Group@SBA Research](https://www.sba-research.org/research/research-groups/eris/) and [SEC@University of Vienna](https://sec.cs.univie.ac.at/).
+This toolchain was developed by [Florian Holzbauer](https://github.com/holzsec) as part of the [SEC@University of Vienna](https://sec.cs.univie.ac.at/) and [Network & Critical Infrastructure Security Group@SBA Research](https://www.sba-research.org/research/research-groups/eris/) reesearch groups.
 
-## 📓 Jupyter Notebooks
+## 📓 Reproducibility (Jupyter Notebooks)
 
 To allow easier orchestration of our tools, we provide two Jupyter Notebooks. Create the virtual environment, install the dependencies and the kernel to execute the notebooks.
 
@@ -326,7 +350,7 @@ To match collected TX error rates against the collected router defaults, we stor
 		},
 ```
 
-`Path: data/data_ratelimits/rates.json`
+`Path: ratelimits/rates.json`
 
 The matching occurs in a three step approach:
 
@@ -375,12 +399,14 @@ We performed local measurements for:
   - Router Defaults:  `measurements/ratelimits/routerlab`
     - `./orchestrate_nd_rate_limits_single_destination.sh 1 0c:62:29:65:00:00 all paper 200 10`
 
-## Related Repositories
+## 🏗️ Related Repositories & Projects
+* [ipv6hitlist](https://ipv6hitlist.github.io/): used to extract active IPv6 networks with atlest one responsive host
+* [snmpv3](https://snmpv3.io/): used to collect vendor ground truth on IPv6 routers
 * [zmapv6](https://github.com/tumi8/zmap): used with adoptions to collect error messages and measure rate limits
 * [yarrp](https://github.com/cmand/yarrp): used for large-scale tracerouting
 * [routerlab](https://github.com/sbaresearch/router-lab): used to collect router default behavior in a controlled environment (GNS3)
 
-## License
+## 💿 License
 icmpv6-destination-reachable is licensed under GPLv3.
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
